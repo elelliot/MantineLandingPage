@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { MantineProvider } from '@mantine/core';
+import { FooterLinks } from './Components/FooterLinks';
+import { HeaderAction } from './Components/HeaderAction';
+import { HeroImageRight } from './Components/HeroImageRight'
+import { HeroText } from './Components/HeroText';
+import { JobDescription } from './Components/JobDescription'
+import { links } from './Helpers/Links'
+import { linksFooter } from './Helpers/LinksFooter';
 
-function App() {
+//const links = [{link: 'a', label: 'e'}, { link: 'b', label: '2', links: [{link:'c', label: 'c' }]}]
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <HeaderAction links={ links } />
+      <HeroImageRight />
+      <JobDescription />
+      <HeroText />
+      <FooterLinks data={ linksFooter }/>
+    </MantineProvider>
   );
 }
-
-export default App;
